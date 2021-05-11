@@ -3,7 +3,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Publish
+name: Publish plugin
 
 on:
   workflow_dispatch:
@@ -15,8 +15,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Publish package
-        uses: k-paxian/dart-package-publisher@master
+      - name: Publish
+        uses: sakebook/actions-flutter-pub-publisher@v1.3.1
         with:
-          accessToken: ${{ secrets.OAUTH_ACCESS_TOKEN }}
-          refreshToken: ${{ secrets.OAUTH_REFRESH_TOKEN }}
+          credential: ${{ secrets.CREDENTIAL_JSON }}
+          flutter_package: true
+          skip_test: true
+          dry_run: false

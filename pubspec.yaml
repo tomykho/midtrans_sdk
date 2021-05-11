@@ -1,8 +1,7 @@
 name: midtrans_sdk
-description: A new flutter plugin project.
-version: 0.0.1
-author:
-homepage:
+description: A Flutter plugin for Midtrans Mobile SDK. Supports iOS and Android.
+version: 0.0.2
+repository: https://github.com/tomykho/midtrans_sdk
 
 environment:
   sdk: ">=2.12.0 <3.0.0"

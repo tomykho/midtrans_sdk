@@ -21,4 +21,3 @@ jobs:
           credentialJson: ${{ secrets.CREDENTIAL_JSON }}
           format: true
           flutter: true
-          dryRunOnly: true

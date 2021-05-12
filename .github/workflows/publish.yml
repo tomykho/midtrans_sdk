@@ -3,7 +3,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Publish plugin
+name: Publish package
 
 on:
   workflow_dispatch:
@@ -20,4 +20,5 @@ jobs:
         with:
           credentialJson: ${{ secrets.CREDENTIAL_JSON }}
           format: true
+          flutter: true
           dryRunOnly: true

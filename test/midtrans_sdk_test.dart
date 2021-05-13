@@ -1,6 +1,5 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:midtrans_sdk/midtrans_sdk.dart';
 
 void main() {
   const MethodChannel channel = MethodChannel('midtrans_sdk');
@@ -18,6 +17,6 @@ void main() {
   });
 
   test('getPlatformVersion', () async {
-    expect(await MidtransSdk.platformVersion, '42');
+    // expect(await Midtrans.init());
   });
 }

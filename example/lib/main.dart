@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'dart:async';
 
-import 'package:flutter/services.dart';
 import 'package:midtrans_sdk/midtrans_sdk.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart' as DotEnv;
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await DotEnv.load();
   runApp(MyApp());
 }
 
@@ -14,32 +15,38 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String _platformVersion = 'Unknown';
+  MidtransSDK? _midtrans;
 
   @override
   void initState() {
     super.initState();
-    initPlatformState();
+    initSDK();
   }
 
-  // Platform messages are asynchronous, so we initialize in an async method.
-  Future<void> initPlatformState() async {
-    String platformVersion;
-    // Platform messages may fail, so we use a try/catch PlatformException.
-    try {
-      platformVersion = await MidtransSdk.platformVersion;
-    } on PlatformException {
-      platformVersion = 'Failed to get platform version.';
-    }
-
-    // If the widget was removed from the tree while the asynchronous platform
-    // message was in flight, we want to discard the reply rather than calling
-    // setState to update our non-existent appearance.
-    if (!mounted) return;
-
-    setState(() {
-      _platformVersion = platformVersion;
+  void initSDK() async {
+    _midtrans = await MidtransSDK.init(
+      config: MidtransConfig(
+        clientKey: DotEnv.env['MIDTRANS_CLIENT_KEY'] ?? "",
+        merchantBaseUrl: DotEnv.env['MIDTRANS_MERCHANT_BASE_URL'] ?? "",
+        colorTheme: ColorTheme(
+          colorPrimary: Theme.of(context).accentColor,
+          colorPrimaryDark: Theme.of(context).accentColor,
+          colorSecondary: Theme.of(context).accentColor,
+        ),
+      ),
+    );
+    _midtrans?.setUIKitCustomSetting(
+      skipCustomerDetailsPages: true,
+    );
+    _midtrans!.setTransactionFinishedCallback((result) {
+      print(result.toJson());
     });
+  }
+
+  @override
+  void dispose() {
+    _midtrans?.removeTransactionFinishedCallback();
+    super.dispose();
   }
 
   @override
@@ -50,7 +57,14 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Plugin example app'),
         ),
         body: Center(
-          child: Text('Running on: $_platformVersion\n'),
+          child: ElevatedButton(
+            child: Text("Pay Now"),
+            onPressed: () async {
+              _midtrans?.startPaymentUiFlow(
+                token: DotEnv.env['SNAP_TOKEN'],
+              );
+            },
+          ),
         ),
       ),
     );

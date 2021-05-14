@@ -19,10 +19,10 @@ To use this plugin, add `midtrans_sdk` as a dependency in your [pubspec.yaml](ht
 
 See the [example](example) directory for a sample about start payment by using snap token app which using `midtrans_sdk`.
 
-### <a id="midtrans-config"> MidtransConfig
+### MidtransConfig
 
 To start using Midtrans you first need to create an instance of `MidtransSDK` before using any other of our sdk functionalities.  
-`MidtransSDK` receives a `MitransConfig` object. This is how you can configure our `MidtransSDK` instance and connect it to your Midtrans account.
+`MidtransSDK` receives a `MidtransConfig` object. This is how you can configure our `MidtransSDK` instance and connect it to your Midtrans account.
 
 *Example:*
 ```dart

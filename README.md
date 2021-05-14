@@ -21,7 +21,7 @@ A Flutter plugin for [Midtrans Mobile SDK](https://mobile-docs.midtrans.com/). V
 
 See the [example](example) directory for a sample about start payment by using snap token app which using `midtrans_sdk`.
 
-### <a id="midtrans-config"> MitransConfig
+### <a id="midtrans-config"> MidtransConfig
 
 To start using Midtrans you first need to create an instance of `MidtransSDK` before using any other of our sdk functionalities.  
 

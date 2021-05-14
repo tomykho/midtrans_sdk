@@ -19,4 +19,4 @@ A Flutter plugin for [Midtrans Mobile SDK](https://mobile-docs.midtrans.com/).
 
 ## <a id="getting-started"> **Getting started**
 
-See the [example](example) directory for a sample about one to one video chat app which using `midtrans_sdk`.
+See the [example](example) directory for a sample about start payment by using snap token app which using `midtrans_sdk`.

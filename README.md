@@ -19,6 +19,32 @@ To use this plugin, add `midtrans_sdk` as a dependency in your [pubspec.yaml](ht
 
 See the [example](example) directory for a sample about start payment by using snap token app which using `midtrans_sdk`.
 
+### Android
+
+Midtrans SDK UIKit requires [Appcompat](https://developer.android.com/jetpack/androidx/releases/appcompat) to open payment UI flow screen.
+
+Open `styles.xml` file and add `AppTheme` style to the file.
+
+```xml
+<style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+```
+
+Open the `AndroidManifest.xml` file and use `AppTheme` style for your application theme.
+
+```xml
+<manifest>
+  ...
+  <application
+      android:label="midtrans_sdk_example"
+      tools:replace="android:label"
+      android:theme="@style/AppTheme"
+     >
+     ...
+  </application>
+  ...
+</manifest>
+```
+
 ### MidtransConfig
 
 To start using Midtrans you first need to create an instance of `MidtransSDK` before using any other of our sdk functionalities.  

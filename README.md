@@ -9,6 +9,7 @@ A Flutter plugin for [Midtrans Mobile SDK](https://mobile-docs.midtrans.com/). V
 ### Table of content
 
 - [Getting started](#getting-started)
+- [Starting payment](#starting-payment)
 
 ---
 
@@ -24,7 +25,6 @@ See the [example](example) directory for a sample about start payment by using s
 ### <a id="midtrans-config"> MidtransConfig
 
 To start using Midtrans you first need to create an instance of `MidtransSDK` before using any other of our sdk functionalities.  
-
 `MidtransSDK` receives a `MitransConfig` object. This is how you can configure our `MidtransSDK` instance and connect it to your Midtrans account.
 
 *Example:*
@@ -47,9 +47,7 @@ var config = MidtransConfig(
 ### <a id="init-sdk">Initializing the SDK
 
 The next step is to call `init` which have the required `MitransConfig` object parameter `config`.
-
 After we call `init` we can use all of Midtrans SDK features.
-
 Initialize the SDK to enable Midtrans to start payment.
 
 ```dart
@@ -59,3 +57,29 @@ MidtransSDK.init(
 ```
 
 ---
+
+### <a id="start-payment">Initializing the SDK
+
+The next step is to call `init` which have the required `MitransConfig` object parameter `config`.
+After we call `init` we can use all of Midtrans SDK features.
+Initialize the SDK to enable Midtrans to start payment.
+
+```dart
+MidtransSDK.init(
+    config: config,
+);
+```
+
+---
+
+## <a id="starting-payment"> **Starting payment**
+  
+### <a id="start-payment-method"> Start payment method screen
+  
+Default mode for `midtrans_sdk` is showing payment method screen. This screen will show all of your available payment methods.
+You can enable/disable payment methods via Snap Preferences in [MAP](https://account.midtrans.com).
+
+### <a id="start-payment-method"> Start payment by using snap token
+  
+We provide SDK method to allow you to make payment by using snap token without initialize transaction request first. You just need to pass snap token as argument of `startPaymentUiFlow` method
+

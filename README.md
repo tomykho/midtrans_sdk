@@ -6,19 +6,16 @@ A Flutter plugin for [Midtrans Mobile SDK](https://mobile-docs.midtrans.com/). V
 
 ---
 
-### Table of content
-
-- [Getting started](#getting-started)
-- [Starting payment](#starting-payment)
-
----
-
-### Supported Platforms
+## Supported Platforms
 
 - Android
 - iOS
 
-## <a id="getting-started"> **Getting started**
+## Usage
+
+To use this plugin, add `midtrans_sdk` as a dependency in your [pubspec.yaml](https://flutter.dev/docs/development/packages-and-plugins/using-packages) file.
+
+## Getting started
 
 See the [example](example) directory for a sample about start payment by using snap token app which using `midtrans_sdk`.
 
@@ -44,7 +41,7 @@ var config = MidtransConfig(
 
 ---
 
-### <a id="init-sdk">Initializing the SDK
+### Initializing the SDK
 
 The next step is to call `init` which have the required `MitransConfig` object parameter `config`.
 After we call `init` we can use all of Midtrans SDK features.
@@ -58,28 +55,14 @@ MidtransSDK.init(
 
 ---
 
-### <a id="start-payment">Initializing the SDK
-
-The next step is to call `init` which have the required `MitransConfig` object parameter `config`.
-After we call `init` we can use all of Midtrans SDK features.
-Initialize the SDK to enable Midtrans to start payment.
-
-```dart
-MidtransSDK.init(
-    config: config,
-);
-```
-
----
-
-## <a id="starting-payment"> **Starting payment**
+## Starting payment
   
-### <a id="start-payment-method"> Start payment method screen
+### Start payment method screen
   
 Default mode for `midtrans_sdk` is showing payment method screen. This screen will show all of your available payment methods.
 You can enable/disable payment methods via Snap Preferences in [MAP](https://account.midtrans.com).
 
-### <a id="start-payment-method"> Start payment by using snap token
+### Start payment by using snap token
   
 We provide SDK method to allow you to make payment by using snap token without initialize transaction request first. You just need to pass snap token as argument of `startPaymentUiFlow` method
 

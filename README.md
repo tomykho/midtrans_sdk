@@ -8,8 +8,9 @@ A Flutter plugin for [Midtrans Mobile SDK](https://mobile-docs.midtrans.com/). V
 
 ## Supported Platforms
 
-- Android
-- iOS
+- [x] Android
+- [ ] iOS
+- [ ] Web
 
 ## Usage
 
@@ -17,7 +18,7 @@ To use this plugin, add `midtrans_sdk` as a dependency in your [pubspec.yaml](ht
 
 ## Getting started
 
-See the [example](example) directory for a sample about start payment by using snap token app which using `midtrans_sdk`.
+See the [example](example) directory for a sample about start payment by using snap token which using `midtrans_sdk`.
 
 ### Android
 
@@ -44,6 +45,8 @@ Open the `AndroidManifest.xml` file and use `AppTheme` style for your applicatio
   ...
 </manifest>
 ```
+
+---
 
 ### MidtransConfig
 

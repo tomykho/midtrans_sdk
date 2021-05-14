@@ -1,6 +1,6 @@
 # midtrans_sdk
 
-A Flutter plugin for [Midtrans Mobile SDK](https://mobile-docs.midtrans.com/).
+A Flutter plugin for [Midtrans Mobile SDK](https://mobile-docs.midtrans.com/). Visit https://midtrans.com.
 
 [![pub package](https://img.shields.io/pub/v/midtrans_sdk.svg)](https://pub.dartlang.org/packages/midtrans_sdk)
 

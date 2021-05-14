@@ -2,7 +2,7 @@
 
 A Flutter plugin for [Midtrans Mobile SDK](https://mobile-docs.midtrans.com/).
 
-[![pub package](https://img.shields.io/pub/v/appsflyer_sdk.svg)](https://pub.dartlang.org/packages/appsflyer_sdk) 
+[![pub package](https://img.shields.io/pub/v/midtrans_sdk.svg)](https://pub.dartlang.org/packages/midtrans_sdk) 
 
 ## Getting Started
 

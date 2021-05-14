@@ -69,7 +69,7 @@ var config = MidtransConfig(
 
 ### Initializing the SDK
 
-The next step is to call `init` which have the required `MitransConfig` object parameter `config`.
+The next step is to call `init` which have the required `MidtransConfig` object parameter `config`.
 After we call `init` we can use all of Midtrans SDK features.
 Initialize the SDK to enable Midtrans to start payment.
 

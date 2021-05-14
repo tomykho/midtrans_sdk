@@ -17,7 +17,7 @@ A Flutter plugin for [Midtrans Mobile SDK](https://mobile-docs.midtrans.com/).
 - Android
 - iOS
 
-## <a id="getting-started"> **📲 Getting started**
+## <a id="getting-started"> **Getting started**
 
 This project is a starting point for a Flutter
 [plug-in package](https://flutter.dev/developing-packages/),

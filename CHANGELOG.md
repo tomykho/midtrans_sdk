@@ -1,3 +1,7 @@
+## 0.2.0
+
+- Support for iOS.
+- 
 ## 0.1.1
 
 - Update README.

@@ -9,19 +9,24 @@ part of 'transaction_result.dart';
 TransactionResult _$TransactionResultFromJson(Map<String, dynamic> json) {
   return TransactionResult(
     isTransactionCanceled: json['isTransactionCanceled'] as bool,
-    source: json['source'] as String?,
-    status:
-        _$enumDecodeNullable(_$TransactionResultStatusEnumMap, json['status']),
+    transactionStatus: _$enumDecodeNullable(
+        _$TransactionResultStatusEnumMap, json['transactionStatus']),
     statusMessage: json['statusMessage'] as String?,
+    transactionId: json['transactionId'] as String?,
+    orderId: json['orderId'] as String?,
+    paymentType: json['paymentType'] as String?,
   );
 }
 
 Map<String, dynamic> _$TransactionResultToJson(TransactionResult instance) =>
     <String, dynamic>{
       'isTransactionCanceled': instance.isTransactionCanceled,
-      'source': instance.source,
-      'status': _$TransactionResultStatusEnumMap[instance.status],
+      'transactionStatus':
+          _$TransactionResultStatusEnumMap[instance.transactionStatus],
       'statusMessage': instance.statusMessage,
+      'transactionId': instance.transactionId,
+      'orderId': instance.orderId,
+      'paymentType': instance.paymentType,
     };
 
 K _$enumDecode<K, V>(
@@ -62,8 +67,9 @@ K? _$enumDecodeNullable<K, V>(
 }
 
 const _$TransactionResultStatusEnumMap = {
-  TransactionResultStatus.success: 'success',
+  TransactionResultStatus.settlement: 'settlement',
   TransactionResultStatus.pending: 'pending',
-  TransactionResultStatus.invalid: 'invalid',
-  TransactionResultStatus.failed: 'failed',
+  TransactionResultStatus.deny: 'deny',
+  TransactionResultStatus.expire: 'expire',
+  TransactionResultStatus.cancel: 'cancel',
 };

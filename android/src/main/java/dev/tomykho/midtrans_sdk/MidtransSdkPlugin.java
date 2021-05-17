@@ -103,10 +103,15 @@ public class MidtransSdkPlugin implements FlutterPlugin, MethodCallHandler, Acti
               @Override
               public void onTransactionFinished(TransactionResult transactionResult) {
                 HashMap<String, Object> arguments = new HashMap<>();
-                arguments.put("status", transactionResult.getStatus());
-                arguments.put("source", transactionResult.getSource());
-                arguments.put("statusMessage", transactionResult.getStatusMessage());
                 arguments.put("isTransactionCanceled", transactionResult.isTransactionCanceled());
+                TransactionResponse response = transactionResult.getResponse();
+                if (response != null) {
+                  arguments.put("transactionStatus", response.getTransactionStatus());
+                  arguments.put("statusMessage", response.getStatusMessage());
+                  arguments.put("transactionId", response.getTransactionId());
+                  arguments.put("orderId", response.getOrderId());
+                  arguments.put("paymentType", response.getPaymentType());
+                }
                 channel.invokeMethod("onTransactionFinished", arguments);
               }
             });

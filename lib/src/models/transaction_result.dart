@@ -5,15 +5,19 @@ part 'transaction_result.g.dart';
 @JsonSerializable()
 class TransactionResult {
   final bool isTransactionCanceled;
-  final String? source;
-  final TransactionResultStatus? status;
+  final TransactionResultStatus? transactionStatus;
   final String? statusMessage;
+  final String? transactionId;
+  final String? orderId;
+  final String? paymentType;
 
   TransactionResult({
     this.isTransactionCanceled = true,
-    this.source,
-    this.status,
+    this.transactionStatus,
     this.statusMessage,
+    this.transactionId,
+    this.orderId,
+    this.paymentType,
   });
 
   factory TransactionResult.fromJson(Map<String, dynamic> json) =>
@@ -22,8 +26,9 @@ class TransactionResult {
 }
 
 enum TransactionResultStatus {
-  success,
+  settlement,
   pending,
-  invalid,
-  failed,
+  deny,
+  expire,
+  cancel,
 }

@@ -21,13 +21,10 @@ class MidtransSDK {
     switch (call.method) {
       case "onTransactionFinished":
         try {
-          print("onTransactionFinished 1");
           Map<String, dynamic> map =
               new Map<String, dynamic>.from(call.arguments);
-          print("onTransactionFinished 2");
           print(map);
           var result = TransactionResult.fromJson(map);
-          print("ASdasdasd");
           _transactionFinishedCallback?.call(result);
         } catch (e) {
           print(e);

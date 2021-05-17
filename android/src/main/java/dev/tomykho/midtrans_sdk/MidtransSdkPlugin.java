@@ -107,21 +107,6 @@ public class MidtransSdkPlugin implements FlutterPlugin, MethodCallHandler, Acti
                 arguments.put("source", transactionResult.getSource());
                 arguments.put("statusMessage", transactionResult.getStatusMessage());
                 arguments.put("isTransactionCanceled", transactionResult.isTransactionCanceled());
-                TransactionResponse transactionResponse = transactionResult.getResponse();
-                Map<String, Object> response = null;
-                if (transactionResponse != null) {
-                  response = new HashMap<>();
-                  for (Field field : transactionResponse.getClass().getDeclaredFields()) {
-                    field.setAccessible(true);
-                    try {
-                      response.put(field.getName(), field.get(transactionResponse));
-                    } catch (Exception e) {
-                      e.printStackTrace();
-                    }
-                  }
-                }
-                arguments.put("response", response);
-
                 channel.invokeMethod("onTransactionFinished", arguments);
               }
             });

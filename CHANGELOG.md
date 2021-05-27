@@ -1,3 +1,7 @@
+## 0.3.1
+
+- [iOS] Use static framework.
+
 ## 0.3.0
 
 - Use production environment for release build.

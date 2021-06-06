@@ -1,7 +1,15 @@
+## 0.3.1
+
+- [iOS] Use static framework.
+
+## 0.3.0
+
+- Use production environment for release build.
+
 ## 0.2.0
 
 - Support for iOS.
-- 
+ 
 ## 0.1.1
 
 - Update README.

@@ -199,7 +199,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "0.2.0"
+    version: "0.3.2"
   package_config:
     dependency: transitive
     description:

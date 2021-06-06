@@ -1,3 +1,7 @@
+## 0.3.2
+
+- [Android] Use sandbox environment SDK for build debug and profile builds.
+
 ## 0.3.1
 
 - [iOS] Use static framework.
@@ -9,7 +13,7 @@
 ## 0.2.0
 
 - Support for iOS.
- 
+
 ## 0.1.1
 
 - Update README.

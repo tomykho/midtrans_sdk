@@ -1,14 +1,10 @@
 package dev.tomykho.midtrans_sdk;
 
 import android.app.Activity;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import com.midtrans.sdk.corekit.callback.TransactionFinishedCallback;
-import com.midtrans.sdk.corekit.core.Logger;
 import com.midtrans.sdk.corekit.core.MidtransSDK;
 import com.midtrans.sdk.corekit.core.UIKitCustomSetting;
 import com.midtrans.sdk.corekit.core.themes.CustomColorTheme;
@@ -16,8 +12,6 @@ import com.midtrans.sdk.corekit.models.TransactionResponse;
 import com.midtrans.sdk.corekit.models.snap.TransactionResult;
 import com.midtrans.sdk.uikit.SdkUIFlowBuilder;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.Map;
 

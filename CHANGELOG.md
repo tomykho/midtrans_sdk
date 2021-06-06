@@ -1,6 +1,6 @@
 ## 0.3.2
 
-- [Android] Use sandbox environment SDK for build debug and profile builds.
+- [Android] Use sandbox environment SDK for debug and profile builds.
 
 ## 0.3.1
 

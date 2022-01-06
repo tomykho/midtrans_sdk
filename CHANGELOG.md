@@ -1,5 +1,9 @@
 ## 0.3.2
 
+- [Android] Change repositories from `jcenter` to `mavenCentral`
+
+## 0.3.2
+
 - [Android] Use sandbox environment SDK for debug and profile builds.
 
 ## 0.3.1

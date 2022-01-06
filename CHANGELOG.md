@@ -1,4 +1,4 @@
-## 0.3.2
+## 0.3.3
 
 - [Android] Change repositories from `jcenter` to `mavenCentral`
 

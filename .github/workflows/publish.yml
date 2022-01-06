@@ -13,11 +13,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-
+      - name: Checkout
+        uses: actions/checkout@v1
       - name: Publish
-        uses: k-paxian/dart-package-publisher@master
+        uses: sakebook/actions-flutter-pub-publisher@v1.4.0
         with:
-          credentialJson: ${{ secrets.CREDENTIAL_JSON }}
-          format: true
-          flutter: true
+          credential: ${{ secrets.CREDENTIAL_JSON }}
+          skip_test: true
+          flutter_package: true

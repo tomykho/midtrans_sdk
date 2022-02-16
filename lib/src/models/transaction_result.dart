@@ -26,6 +26,7 @@ class TransactionResult {
 }
 
 enum TransactionResultStatus {
+  capture,
   settlement,
   pending,
   deny,

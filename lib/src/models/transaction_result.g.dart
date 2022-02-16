@@ -67,6 +67,7 @@ K? _$enumDecodeNullable<K, V>(
 }
 
 const _$TransactionResultStatusEnumMap = {
+  TransactionResultStatus.capture: 'capture',
   TransactionResultStatus.settlement: 'settlement',
   TransactionResultStatus.pending: 'pending',
   TransactionResultStatus.deny: 'deny',

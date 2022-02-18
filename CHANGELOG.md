@@ -1,3 +1,7 @@
+## 0.3.4
+
+- Add `capture` in TransactionResultStatus
+
 ## 0.3.3
 
 - [Android] Change repositories from `jcenter` to `mavenCentral`

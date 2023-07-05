@@ -29,9 +29,9 @@ class _MyAppState extends State<MyApp> {
         clientKey: DotEnv.env['MIDTRANS_CLIENT_KEY'] ?? "",
         merchantBaseUrl: DotEnv.env['MIDTRANS_MERCHANT_BASE_URL'] ?? "",
         colorTheme: ColorTheme(
-          colorPrimary: Theme.of(context).accentColor,
-          colorPrimaryDark: Theme.of(context).accentColor,
-          colorSecondary: Theme.of(context).accentColor,
+          colorPrimary: Theme.of(context).colorScheme.secondary,
+          colorPrimaryDark: Theme.of(context).colorScheme.secondary,
+          colorSecondary: Theme.of(context).colorScheme.secondary,
         ),
       ),
     );

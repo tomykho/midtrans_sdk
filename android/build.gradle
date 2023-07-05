@@ -23,7 +23,7 @@ rootProject.allprojects {
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 34
+    compileSdkVersion 33
 
     defaultConfig {
         minSdkVersion 21
@@ -31,6 +31,6 @@ android {
 }
 
 dependencies {
-    implementation 'com.midtrans:uikit:2.0.0-SANDBOX'
-    releaseImplementation 'com.midtrans:uikit:2.0.0'
+    implementation 'com.midtrans:uikit:1.30.1-SANDBOX'
+    releaseImplementation 'com.midtrans:uikit:1.30.1'
 }

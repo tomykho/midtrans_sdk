@@ -126,31 +126,11 @@ public class MidtransSdkPlugin implements FlutterPlugin, MethodCallHandler, Acti
   }
 
   private void setUIKitCustomSetting(MethodCall call, Result result) {
-    Boolean showPaymentStatus = call.argument("showPaymentStatus");
-    Boolean saveCardChecked = call.argument("saveCardChecked");
-    Boolean skipCustomerDetailsPages = call.argument("skipCustomerDetailsPages");
-    Boolean showEmailInCcForm = call.argument("showEmailInCcForm");
-    Boolean setEnableAutoReadSms = call.argument("setEnableAutoReadSms");
-
     UIKitCustomSetting setting = new UIKitCustomSetting();
-    if (showPaymentStatus != null) {
-      setting.setShowPaymentStatus(showPaymentStatus);
-    }
-    if (saveCardChecked != null) {
-      setting.setShowPaymentStatus(saveCardChecked);
-    }
-    if (skipCustomerDetailsPages != null) {
-      setting.setSkipCustomerDetailsPages(skipCustomerDetailsPages);
-    }
-    if (showEmailInCcForm != null) {
-      setting.setShowEmailInCcForm(showEmailInCcForm);
-    }
-    if (showEmailInCcForm != null) {
-      setting.setShowEmailInCcForm(showEmailInCcForm);
-    }
-    if (setEnableAutoReadSms != null) {
-      setting.setEnableAutoReadSms(setEnableAutoReadSms);
-    }
+    
+    setting.setSkipCustomerDetailsPages(true);
+    setting.setShowPaymentStatus(true);
+    
     MidtransSDK.getInstance().setUIKitCustomSetting(setting);
     result.success(null);
   }

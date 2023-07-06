@@ -14,10 +14,10 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@main
+        
       - name: Publish
-        uses: sakebook/actions-flutter-pub-publisher@v1.4.1
+        uses: k-paxian/dart-package-publisher@master
         with:
-          credential: ${{ secrets.CREDENTIAL_JSON }}
-          skip_test: true
-          flutter_package: true
+          credentialJson: ${{ secrets.CREDENTIAL_JSON }}
+          skipTests: true

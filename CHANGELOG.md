@@ -1,4 +1,4 @@
-## 0.3.4
+## 0.4.0
 
 - Update Midtrans SDK to 2.0.0
 

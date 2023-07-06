@@ -4,21 +4,15 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   const MethodChannel channel = MethodChannel('midtrans_sdk');
 
+  handler(MethodCall methodCall) async {
+    if (methodCall.method == 'yourMethod') {
+      return 42;
+    }
+    return null;
+  }
+
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  setUp(() {
-    TestDefaultBinaryMessengerBinding.instance!.defaultBinaryMessenger
-        .setMockMethodCallHandler((MethodCall methodCall) async {
-      return '42';
-    });
-  });
-
-  tearDown(() {
-    TestDefaultBinaryMessengerBinding.instance!.defaultBinaryMessenger
-        .setMockMethodCallHandler(null);
-  });
-
-  test('getPlatformVersion', () async {
-    // expect(await Midtrans.init());
-  });
+  TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+      .setMockMethodCallHandler(channel, handler);
 }

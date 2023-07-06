@@ -1,5 +1,9 @@
 ## 0.3.4
 
+- Update Midtrans SDK to 2.0.0
+
+## 0.3.4
+
 - Add `capture` in TransactionResultStatus
 
 ## 0.3.3

@@ -21,3 +21,4 @@ jobs:
         with:
           credentialJson: ${{ secrets.CREDENTIAL_JSON }}
           skipTests: true
+          flutter: true

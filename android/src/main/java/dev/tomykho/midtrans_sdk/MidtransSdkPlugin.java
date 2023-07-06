@@ -151,6 +151,7 @@ public class MidtransSdkPlugin implements FlutterPlugin, MethodCallHandler, Acti
     if (setEnableAutoReadSms != null) {
       setting.setEnableAutoReadSms(setEnableAutoReadSms);
     }
+    
     MidtransSDK.getInstance().setUIKitCustomSetting(setting);
     result.success(null);
   }

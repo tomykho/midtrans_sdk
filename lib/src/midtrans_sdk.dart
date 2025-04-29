@@ -21,9 +21,9 @@ class MidtransSDK {
     switch (call.method) {
       case "onTransactionFinished":
         try {
-          Map<String, dynamic> map =
-              new Map<String, dynamic>.from(call.arguments);
-          print(map);
+          Map<String, dynamic> map = new Map<String, dynamic>.from(
+            call.arguments,
+          );
           var result = TransactionResult.fromJson(map);
           _transactionFinishedCallback?.call(result);
         } catch (e) {
@@ -33,9 +33,7 @@ class MidtransSDK {
     }
   }
 
-  static Future<MidtransSDK> init({
-    required MidtransConfig config,
-  }) async {
+  static Future<MidtransSDK> init({required MidtransConfig config}) async {
     await _channel.invokeMethod('init', config.toJson());
     return _instance;
   }
@@ -48,25 +46,7 @@ class MidtransSDK {
     _transactionFinishedCallback = null;
   }
 
-  Future<void> setUIKitCustomSetting({
-    bool? showPaymentStatus,
-    bool? saveCardChecked,
-    bool? skipCustomerDetailsPages,
-    bool? showEmailInCcForm,
-    bool? setEnableAutoReadSms,
-  }) async {
-    return _channel.invokeMethod('setUIKitCustomSetting', {
-      "showPaymentStatus": showPaymentStatus,
-      "saveCardChecked": saveCardChecked,
-      "skipCustomerDetailsPages": skipCustomerDetailsPages,
-      "showEmailInCcForm": showEmailInCcForm,
-      "setEnableAutoReadSms": setEnableAutoReadSms,
-    });
-  }
-
   Future<void> startPaymentUiFlow({String? token}) async {
-    return _channel.invokeMethod('startPaymentUiFlow', {
-      "token": token,
-    });
+    return _channel.invokeMethod('startPaymentUiFlow', {"token": token});
   }
 }

@@ -7,3 +7,5 @@
 build/
 
 example/.env
+
+.idea/

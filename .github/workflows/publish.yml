@@ -9,17 +9,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  publishing:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@main
-        
-      - name: Publish
-        uses: k-paxian/dart-package-publisher@master
-        with:
-          accessToken: ${{ secrets.OAUTH_ACCESS_TOKEN }}
-          refreshToken: ${{ secrets.OAUTH_REFRESH_TOKEN }}
-          skipTests: true
-          flutter: true
+  publish:
+    uses: dart-lang/ecosystem/.github/workflows/publish.yaml@main
+    permissions:
+      id-token: write
+      pull-requests: write

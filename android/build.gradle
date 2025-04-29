@@ -43,7 +43,6 @@ android {
 
 dependencies {
     implementation 'androidx.appcompat:appcompat:1.7.0'
-    implementation "androidx.activity:activity:1.10.1"
     implementation "com.midtrans:uikit:$uikit_version-SANDBOX"
     releaseImplementation "com.midtrans:uikit:$uikit_version"
 }

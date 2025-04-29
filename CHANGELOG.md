@@ -1,3 +1,11 @@
+## 1.0.0-rc.1
+
+- [Android] Update Midtrans SDK to 2.3.0
+- [Android] Replace `SdkUIFlowBuilder` to `UiKitApi.Builder` [See changes](https://docs.midtrans.com/reference/android-sdk#important-starting-version-200)
+- [Android] Remove `setUIKitCustomSetting` function
+- [iOS] Update MidtransKit to 1.27.1
+- Remove `json_serializable` from dependencies
+
 ## 0.4.0
 
 - Update Midtrans SDK to 2.0.0

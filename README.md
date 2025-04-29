@@ -52,12 +52,12 @@ To start using Midtrans you first need to create an instance of `MidtransSDK` be
 import 'package:midtrans_sdk/midtrans_sdk.dart';
 
 var config = MidtransConfig(
-  clientKey: DotEnv.env['MIDTRANS_CLIENT_KEY'] ?? "",
-  merchantBaseUrl: DotEnv.env['MIDTRANS_MERCHANT_BASE_URL'] ?? "",
+  clientKey: "",
+  merchantBaseUrl: "",
   colorTheme: ColorTheme(
-    colorPrimary: Theme.of(context).accentColor,
-    colorPrimaryDark: Theme.of(context).accentColor,
-    colorSecondary: Theme.of(context).accentColor,
+    colorPrimary: Theme.of(context).colorScheme.primary,
+    colorPrimaryDark: Theme.of(context).colorScheme.primary,
+    colorSecondary: Theme.of(context).colorScheme.secondary,
   ),
 );
 ```
@@ -87,5 +87,11 @@ You can enable/disable payment methods via Snap Preferences in [MAP](https://acc
 
 ### Start payment by using snap token
   
-We provide SDK method to allow you to make payment by using snap token without initialize transaction request first. You just need to pass snap token as argument of `startPaymentUiFlow` method
+We provide SDK method to allow you to make payment by using snap token without initialize transaction request first. You just need to pass snap token as argument of `startPaymentUiFlow` method.
+
+```dart
+_midtrans?.startPaymentUiFlow(
+    token: "snap-token",
+);
+```
 

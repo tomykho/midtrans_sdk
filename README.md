@@ -22,28 +22,22 @@ See the [example](example) directory for a sample about start payment by using s
 
 ### Android
 
-Midtrans SDK UIKit requires [Appcompat](https://developer.android.com/jetpack/androidx/releases/appcompat) to open payment UI flow screen.
+- If you are using `FlutterActivity` directly, change it to `FlutterFragmentActivity` in your `AndroidManifest.xml`.
+- If you are using a custom activity, update your `MainActivity.java`:
+```java
+import io.flutter.embedding.android.FlutterFragmentActivity;
 
-Open `styles.xml` file and add `AppTheme` style to the file.
-
-```xml
-<style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+public class MainActivity extends FlutterFragmentActivity {
+    // ...
+}
 ```
+or `MainActivity.kt`:
+```kotlin
+import io.flutter.embedding.android.FlutterFragmentActivity
 
-Open the `AndroidManifest.xml` file and use `AppTheme` style for your application theme.
-
-```xml
-<manifest>
-  ...
-  <application
-      android:label="midtrans_sdk_example"
-      tools:replace="android:label"
-      android:theme="@style/AppTheme"
-     >
-     ...
-  </application>
-  ...
-</manifest>
+class MainActivity: FlutterFragmentActivity() {
+    // ...
+}
 ```
 
 ---
@@ -58,12 +52,12 @@ To start using Midtrans you first need to create an instance of `MidtransSDK` be
 import 'package:midtrans_sdk/midtrans_sdk.dart';
 
 var config = MidtransConfig(
-  clientKey: DotEnv.env['MIDTRANS_CLIENT_KEY'] ?? "",
-  merchantBaseUrl: DotEnv.env['MIDTRANS_MERCHANT_BASE_URL'] ?? "",
+  clientKey: "",
+  merchantBaseUrl: "",
   colorTheme: ColorTheme(
-    colorPrimary: Theme.of(context).accentColor,
-    colorPrimaryDark: Theme.of(context).accentColor,
-    colorSecondary: Theme.of(context).accentColor,
+    colorPrimary: Theme.of(context).colorScheme.primary,
+    colorPrimaryDark: Theme.of(context).colorScheme.primary,
+    colorSecondary: Theme.of(context).colorScheme.secondary,
   ),
 );
 ```
@@ -93,5 +87,11 @@ You can enable/disable payment methods via Snap Preferences in [MAP](https://acc
 
 ### Start payment by using snap token
   
-We provide SDK method to allow you to make payment by using snap token without initialize transaction request first. You just need to pass snap token as argument of `startPaymentUiFlow` method
+We provide SDK method to allow you to make payment by using snap token without initialize transaction request first. You just need to pass snap token as argument of `startPaymentUiFlow` method.
+
+```dart
+_midtrans?.startPaymentUiFlow(
+    token: "snap-token",
+);
+```
 

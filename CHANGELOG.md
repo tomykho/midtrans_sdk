@@ -1,3 +1,7 @@
+## 1.0.1
+
+- [iOS] Update MidtransKit to 1.28.0
+
 ## 1.0.0
 
 - [Android] Update UI Kit to 2.3.0

@@ -75,7 +75,7 @@ public class MidtransSdkPlugin implements FlutterPlugin, MethodCallHandler, Acti
                     if (actResult != null && actResult.getResultCode() == Activity.RESULT_OK) {
                         Intent data = actResult.getData();
                         if (data != null) {
-                            TransactionResult result = data.getParcelableExtra(UiKitConstants.KEY_TRANSACTION_RESULT);
+                            TransactionResult result = data.getParcelableExtra(UiKitConstants.KEY_TRANSACTION_RESULT, TransactionResult.class);
                             if (result != null) {
                                 HashMap<String, Object> arguments = new HashMap<>();
                                 arguments.put("message", result.getMessage());

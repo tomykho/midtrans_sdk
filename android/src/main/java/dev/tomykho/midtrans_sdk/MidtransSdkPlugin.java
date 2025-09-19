@@ -2,6 +2,7 @@ package dev.tomykho.midtrans_sdk;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Build;
 
 import androidx.activity.ComponentActivity;
 import androidx.activity.result.ActivityResultLauncher;
@@ -75,14 +76,30 @@ public class MidtransSdkPlugin implements FlutterPlugin, MethodCallHandler, Acti
                     if (actResult != null && actResult.getResultCode() == Activity.RESULT_OK) {
                         Intent data = actResult.getData();
                         if (data != null) {
-                            TransactionResult result = data.getParcelableExtra(UiKitConstants.KEY_TRANSACTION_RESULT);
-                            if (result != null) {
-                                HashMap<String, Object> arguments = new HashMap<>();
-                                arguments.put("message", result.getMessage());
-                                arguments.put("status", result.getStatus());
-                                arguments.put("transactionId", result.getTransactionId());
-                                arguments.put("paymentType", result.getPaymentType());
-                                channel.invokeMethod("onTransactionFinished", arguments);
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                                // Use the new, type-safe method for Android 13 (API 33) and higher
+                                TransactionResult result = data.getParcelableExtra(UiKitConstants.KEY_TRANSACTION_RESULT, TransactionResult.class);
+                                if (result != null) {
+                                    HashMap<String, Object> arguments = new HashMap<>();
+                                    arguments.put("message", result.getMessage());
+                                    arguments.put("status", result.getStatus());
+                                    arguments.put("transactionId", result.getTransactionId());
+                                    arguments.put("paymentType", result.getPaymentType());
+                                    channel.invokeMethod("onTransactionFinished", arguments);
+                                }
+                            } else {
+                                // Use the old, deprecated method for older versions.
+                                // We suppress the warning because this is our intended fallback.
+                                @SuppressWarnings("deprecation")
+                                TransactionResult result = data.getParcelableExtra(UiKitConstants.KEY_TRANSACTION_RESULT);
+                                if (result != null) {
+                                    HashMap<String, Object> arguments = new HashMap<>();
+                                    arguments.put("message", result.getMessage());
+                                    arguments.put("status", result.getStatus());
+                                    arguments.put("transactionId", result.getTransactionId());
+                                    arguments.put("paymentType", result.getPaymentType());
+                                    channel.invokeMethod("onTransactionFinished", arguments);
+                                }
                             }
                         }
                     }

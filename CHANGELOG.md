@@ -1,10 +1,14 @@
+## 1.1.0
+
+- [Android] Update UIKit to `2.4.0`
+
 ## 1.0.1
 
-- [iOS] Update MidtransKit to 1.28.0
+- [iOS] Update MidtransKit to `1.28.0`
 
 ## 1.0.0
 
-- [Android] Update UI Kit to 2.3.0
+- [Android] Update UIKit to 2.3.0
 - [Android] Replace `SdkUIFlowBuilder` to `UiKitApi.Builder` [See changes](https://docs.midtrans.com/reference/android-sdk#important-starting-version-200)
 - [Android] Remove `setUIKitCustomSetting` function
 - [iOS] Update MidtransKit to 1.27.1

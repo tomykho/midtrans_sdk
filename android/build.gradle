@@ -3,8 +3,8 @@ version '1.0'
 
 buildscript {
     ext {
-        agp_version = '8.9.2'
-        uikit_version = '2.3.0'
+        agp_version = '8.13.0'
+        uikit_version = '2.4.0'
     }
     repositories {
         mavenCentral()
@@ -25,11 +25,12 @@ rootProject.allprojects {
 }
 
 apply plugin: 'com.android.library'
+apply plugin: 'org.jetbrains.kotlin.android'
 
 android {
     namespace 'dev.tomykho.midtrans_sdk'
 
-    compileSdk = 35
+    compileSdk = 36
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
@@ -39,10 +40,14 @@ android {
     defaultConfig {
         minSdk = 21
     }
+    kotlinOptions {
+        jvmTarget = '17'
+    }
 }
 
 dependencies {
-    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.7.1'
     implementation "com.midtrans:uikit:$uikit_version-SANDBOX"
+    implementation 'androidx.core:core-ktx:1.17.0'
     releaseImplementation "com.midtrans:uikit:$uikit_version"
 }

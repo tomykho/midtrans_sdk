@@ -1,3 +1,7 @@
+## 1.2.0
+
+- [Android] Update UIKit to `2.5.0`
+
 ## 1.1.0
 
 - [Android] Update UIKit to `2.4.0`

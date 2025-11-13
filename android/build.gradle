@@ -4,7 +4,7 @@ version '1.0'
 buildscript {
     ext {
         agp_version = '8.13.0'
-        uikit_version = '2.4.0'
+        uikit_version = '2.5.0'
     }
     repositories {
         mavenCentral()
